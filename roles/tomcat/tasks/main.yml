@@ -1,0 +1,32 @@
+---
+- name: Install OpenJDK
+  apt:
+    name: openjdk-8-jdk
+    state: present
+  tags: [tomcat]
+
+- name: Install Tomcat
+  apt:
+    name: tomcat8
+    state: present
+  tags: [tomcat]
+
+- name: Configure Tomcat server.xml
+  template:
+    src: server.xml.j2
+    dest: /etc/tomcat8/server.xml
+  notify: restart tomcat
+  tags: [tomcat]
+
+- name: Ensure Tomcat service is enabled and started
+  systemd:
+    name: tomcat8
+    enabled: yes
+    state: started
+  tags: [tomcat]
+
+handlers:
+  - name: restart tomcat
+    service:
+      name: tomcat8
+      state: restarted
