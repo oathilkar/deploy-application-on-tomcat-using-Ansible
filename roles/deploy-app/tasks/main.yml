@@ -1,0 +1,16 @@
+---
+- name: Deploy WAR file to Tomcat webapps directory
+  copy:
+    src: files/sample.war  # Replace with your WAR file
+    dest: /var/lib/tomcat8/webapps/sample.war
+    owner: tomcat8
+    group: tomcat8
+    mode: '0644'
+  notify: restart tomcat
+  tags: [deploy-app]
+
+handlers:
+  - name: restart tomcat
+    service:
+      name: tomcat8
+      state: restarted
