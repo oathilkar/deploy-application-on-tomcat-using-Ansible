@@ -1,0 +1,26 @@
+ansible-tomcat-deployment/
+├── inventories/
+│   └── production/
+│       └── hosts.ini       # Inventory file
+├── playbooks/
+│   ├── tomcat-install.yml   # Tomcat installation playbook
+│   └── deploy-app.yml       # Playbook to deploy the application
+└── roles/
+    ├── tomcat/
+    │   ├── tasks/
+    │   │   └── main.yml    # Tomcat role tasks
+    │   ├── templates/
+    │   │   └── server.xml.j2  # Tomcat server.xml template
+    │   ├── vars/
+    │   │   └── main.yml     # Tomcat role variables
+    │   └── meta/
+    │       └── main.yml     # Tomcat role metadata
+    └── deploy-app/
+        ├── tasks/
+        │   └── main.yml    # Deploy application tasks
+        ├── files/
+        │   └── sample.war  # Sample application WAR file (replace with your app)
+        ├── vars/
+        │   └── main.yml    # Deploy application variables
+        └── meta/
+            └── main.yml    # Deploy application metadata
