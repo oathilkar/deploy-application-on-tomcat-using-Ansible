@@ -1,0 +1,7 @@
+---
+- name: Deploy application to Tomcat
+  hosts: tomcat_servers
+  become: true  # Run tasks with root privileges
+
+  roles:
+    - deploy-app
