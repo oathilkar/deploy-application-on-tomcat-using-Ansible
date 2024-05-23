@@ -1,4 +1,4 @@
-# deploy-application-on-tomcat-using-Ansible
+# Deploy-application-on-tomcat-using-Ansible
 
 ### Summary
 
@@ -227,4 +227,4 @@ ansible-playbook -i inventories/production/hosts.ini playbooks/tomcat-install.ym
 # Deploy Application
 ansible-playbook -i inventories/production/hosts.ini playbooks/deploy-app.yml
 ```
-
+This concludes project to deploy .war on tomcat.
